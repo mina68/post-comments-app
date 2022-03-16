@@ -1,7 +1,10 @@
 export default {
     body: {
         isLength: {
-            options: {min:3}
+            errorMessage: 'Comment body must be 3 chars at least.',
+            options: {
+                min: 3
+            }
         }
     },
     post_id: {

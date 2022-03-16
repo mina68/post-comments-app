@@ -11,7 +11,11 @@ export default class CommentController extends BaseController {
     }
 
     public getOne(req: Request, res: Response, next: NextFunction) {
-        return this.handleAsyncServiceResponse(req, res, next, () => this.CommentService.fineOne(parseInt(req.params.id)));
+        this.CommentService.fineOne(parseInt(req.params.id)).then((data) => {
+            return res.json(data);
+        }).catch((err) => {
+            return next(err);
+        })
     }
     
     public create(req: Request, res: Response, next: NextFunction) {

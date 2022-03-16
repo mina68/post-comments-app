@@ -1,7 +1,11 @@
 import express, { NextFunction, Request, Response } from "express";
 import appRoutes from "../routes";
+import cors from 'cors';
 
 export default (app: express.Application) => {
+
+  app.use(cors());
+
   app.use(express.json());
 
   app.use(appRoutes());
